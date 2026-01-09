@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Mail, MapPin, Phone } from "lucide-react";
 import {
   bulksms,
   bulkvoice,
@@ -336,11 +337,11 @@ const ServicesWeOffer = () => {
               <div className="space-y-3 text-sm">
                 {[
                   {
-                    icon: "📍",
+                    icon: <MapPin />,
                     text: "4th Floor, Akravi Disha, Nashik, Maharashtra 422002",
                   },
-                  { icon: "📞", text: "+91 95959 02006" },
-                  { icon: "📧", text: "support@richsol.com" },
+                  { icon: <Phone />, text: "+91 95959 02006" },
+                  { icon: <Mail />, text: "support@richsol.com" },
                 ].map((item, index) => (
                   <motion.div
                     key={index}

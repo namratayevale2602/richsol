@@ -121,12 +121,6 @@ const servicesData = [
       "Reach your audience instantly with reliable bulk email solutions.",
     image: bulkemail,
   },
-  {
-    label: "Outdoor Marketing",
-    path: "/products/outdoor-marketing",
-    description: "Captivating Audiences with Strategic Outdoor Advertising...",
-    image: outdoormarketing,
-  },
 ];
 
 // Service items structure
@@ -422,13 +416,13 @@ const departments = [
 
 // Essential Navigation Items (without Contact)
 const essentialNavItems = [
-  {
-    label: "Home",
-    path: "/",
-    title: "IT Services & Digital Marketing Company",
-    description:
-      "Leading IT services and digital marketing company offering software development, web development, and complete digital marketing solutions.",
-  },
+  // {
+  //   label: "Home",
+  //   path: "/",
+  //   title: "IT Services & Digital Marketing Company",
+  //   description:
+  //     "Leading IT services and digital marketing company offering software development, web development, and complete digital marketing solutions.",
+  // },
   {
     label: "About Us",
     path: "/about",
@@ -514,7 +508,7 @@ const Navbar = () => {
           backgroundColor: "rgba(255,255,255,0.98)",
         }}
       >
-        <div className=" mx-auto px-6 flex justify-between items-center">
+        <div className="max-w-[1650px] mx-auto px-6 flex justify-between items-center">
           {/* Logo */}
           <motion.div
             className="flex items-center"

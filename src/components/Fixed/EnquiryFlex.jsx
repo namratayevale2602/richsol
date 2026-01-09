@@ -1,12 +1,13 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, recordStats } from "framer-motion";
 import { Link } from "react-router-dom";
+import { reachOut } from "../../assets/index";
 
 // JSON data
 const enquiryFlexData = {
   background: "#004ECC",
   image: {
-    src: "/lets_reach_out.png",
+    src: reachOut,
     alt: "offer",
   },
   title: "LETS REACH OUT",

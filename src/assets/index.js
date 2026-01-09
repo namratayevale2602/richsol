@@ -3,6 +3,7 @@ import footerLogo from "./footer-logo.png";
 import trustedClient from "./homeimg/clienttrust.png";
 import quoteImg from "./homeimg/qutoe.png";
 import heroVideo from "./homeimg/global.mp4";
+import reachOut from "./homeimg/lets_reach_out.png";
 // Product
 import software from "./logo/software.png";
 import business from "./logo/business.png";
@@ -56,6 +57,24 @@ import blog from "./navbar-img/blog.png";
 import howtoguide from "./navbar-img/howtoguide.png";
 import faq from "./navbar-img/faq.png";
 
+// Products other images
+
+import sms from "./products/sms.png";
+import img1 from "./productsimg/1.png";
+import img2 from "./productsimg/2.png";
+import img3 from "./productsimg/3.png";
+import img4 from "./productsimg/4.png";
+import img5 from "./productsimg/5.png";
+import img6 from "./productsimg/6.png";
+import img7 from "./productsimg/7.png";
+import img8 from "./productsimg/8.png";
+import img9 from "./productsimg/9.png";
+import img10 from "./productsimg/10.png";
+import img11 from "./productsimg/11.png";
+import img12 from "./productsimg/12.png";
+import pramotionalSMS from "./productsimg/pramotionalSMS.png";
+import transactionalSMS from "./productsimg/transactionalSMS.png";
+
 export {
   Richlogo,
   footerLogo,
@@ -65,6 +84,7 @@ export {
   software,
   business,
   digital,
+  reachOut,
   // products
   alertsystems,
   bulkemails,
@@ -113,4 +133,21 @@ export {
   blog,
   howtoguide,
   faq,
+
+  // Products other images
+  sms,
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+  img11,
+  img12,
+  pramotionalSMS,
+  transactionalSMS,
 };

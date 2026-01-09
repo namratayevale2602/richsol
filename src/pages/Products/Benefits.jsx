@@ -1,23 +1,71 @@
 import React, { useEffect, useState } from "react";
 import { FcApproval } from "react-icons/fc";
+import { sms, img11, img10, img3 } from "../../assets/index";
+import data from "../../data/productsData.json";
+import imageMapping from "../../data/imageMapping";
 
-// Dummy data for benefits
+//  data for benefits
+const benefitsData = data.benefitsData;
 const dummyBenefitsData = {
   benefits: [
     {
       id: 1,
       product_name: "bulk-sms",
-      title: "Bulk SMS Benefits",
-      subtitle: "Why Choose Our SMS Services",
+      title: "Maximize Your Reach with Bulk SMS",
+      subtitle:
+        "Engage Customers, Boost Sales and Deliver Instant Communication.",
       description:
-        "Our Bulk SMS service offers numerous advantages for businesses looking to enhance their communication strategy and reach customers effectively.",
-      image: "/images/bulk-sms-benefits.jpg",
+        "Bulk SMS provides a direct, reliable way to connect with your audience for promotions, alerts, reminders, or updates. With open rates exceeding traditional email marketing, your message is seen instantly. This cost-effective channel helps businesses strengthen customer relationships and achieve marketing goals faster.",
+      image: sms,
       benefits: [
-        { benefits: "Instant delivery to thousands of customers" },
-        { benefits: "High open rates compared to email" },
-        { benefits: "Cost-effective marketing solution" },
-        { benefits: "Real-time delivery reports" },
-        { benefits: "Easy integration with existing systems" },
+        { benefits: "Send messages instantly for real-time communication." },
+        { benefits: "Over 98% open rate ensures visibility." },
+        { benefits: "Low-cost marketing with excellent ROI." },
+        { benefits: "Reach anyone globally with a mobile phone." },
+        { benefits: "Boost interaction with call-to-action features." },
+      ],
+    },
+    {
+      id: 2,
+      product_name: "bulk-voice",
+      title: "Amplify Your Reach with Bulk Voice Solutions",
+      subtitle: "Effortless Voice Messaging for Maximum Impact",
+      description:
+        "Communicate effectively with Bulk Voice services. Deliver personalized voice messages to thousands of recipients instantly. Whether for promotions, updates, or alerts, this solution ensures your message is heard loud and clear, creating a lasting impression.",
+      image: img3,
+      benefits: [
+        { benefits: "Send messages to thousands of contacts simultaneously." },
+        {
+          benefits:
+            "Deliver a human-like experience with customizable voice messages.",
+        },
+        {
+          benefits:
+            "Save time and money compared to traditional communication methods.",
+        },
+        {
+          benefits:
+            "Ideal for marketing campaigns, reminders, surveys, and emergency alerts.",
+        },
+        {
+          benefits:
+            "Suitable for businesses, political campaigns, schools, and more.",
+        },
+      ],
+    },
+    {
+      id: 3,
+      product_name: "graphic-design",
+      title: "Unleash Creativity with Expert Graphic Design",
+      subtitle: "Crafting Visual Experiences That Captivate and Inspire",
+      description:
+        "Our Graphic Design services create compelling visuals that bring your brand's message to life, helping you connect with your audience and stand out in the market.",
+      image: img10,
+      benefits: [
+        { benefits: "Builds a memorable and unique brand identity." },
+        { benefits: "Simplifies complex messages through visuals." },
+        { benefits: "Gives your business a polished and credible look." },
+        { benefits: "Captures attention and drives interaction." },
       ],
     },
     {
@@ -27,7 +75,7 @@ const dummyBenefitsData = {
       subtitle: "Transform Your Customer Experience",
       description:
         "Our Intelligent Voice Response system provides significant benefits for businesses seeking to automate and improve customer interactions.",
-      image: "/images/ivr-benefits.jpg",
+      image: img11,
       benefits: [
         { benefits: "24/7 customer service availability" },
         { benefits: "Reduced wait times for customers" },
@@ -36,36 +84,31 @@ const dummyBenefitsData = {
         { benefits: "Multilingual support capabilities" },
       ],
     },
-    {
-      id: 3,
-      product_name: "digital-marketing",
-      title: "Digital Marketing Benefits",
-      subtitle: "Grow Your Online Presence",
-      description:
-        "Our comprehensive digital marketing services help businesses establish a strong online presence and reach their target audience effectively.",
-      image: "/images/digital-marketing-benefits.jpg",
-      benefits: [
-        { benefits: "Increased brand visibility and awareness" },
-        { benefits: "Targeted audience reach" },
-        { benefits: "Measurable ROI and analytics" },
-        { benefits: "Cost-effective compared to traditional marketing" },
-        { benefits: "Real-time campaign adjustments" },
-      ],
-    },
+
     {
       id: 4,
       product_name: "whatsapp-service",
-      title: "WhatsApp Business Benefits",
-      subtitle: "Engage Customers Personally",
+      title: "Boost Your Business with Advanced WhatsApp Services",
+      subtitle:
+        "Bulk Messaging, Blue Tick Verification, and WhatsApp Business API Solutions",
       description:
-        "Leverage the power of WhatsApp for business communication with high engagement rates and personal touch.",
-      image: "/images/whatsapp-benefits.jpg",
+        "Enhance your business communication with our WhatsApp services. From Bulk Messaging to Blue Tick Verification and advanced WhatsApp Business API, we provide tools to connect, engage, and grow efficiently.",
+      image: img10,
       benefits: [
-        { benefits: "High engagement and open rates" },
-        { benefits: "Rich media support (images, videos, documents)" },
-        { benefits: "Official WhatsApp Business API" },
-        { benefits: "Template messaging for consistency" },
-        { benefits: "Secure and encrypted communication" },
+        {
+          benefits:
+            "Instantly reach a broad audience with promotional messages.",
+        },
+        {
+          benefits:
+            "Build trust with a verified badge that ensures authenticity.",
+        },
+        { benefits: "Enhance your brand reputation and customer confidence." },
+        {
+          benefits:
+            "Automate responses with chatbots for faster customer service.",
+        },
+        { benefits: "Drive better engagement with your official account." },
       ],
     },
   ],
@@ -76,7 +119,7 @@ const getBenefits = async (industry = 0) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       try {
-        resolve(dummyBenefitsData.benefits);
+        resolve(benefitsData.benefits);
       } catch (error) {
         reject(new Error(error));
       }
@@ -187,9 +230,9 @@ const Benefits = ({ subpage }) => {
             {/* Image on right side */}
             <div className="w-full lg:w-1/2">
               <img
-                src={`https://picsum.photos/600/400?random=${benefit.id}`}
+                src={imageMapping[benefit.image]}
                 alt={benefit.title}
-                className="w-full h-auto rounded-lg shadow-lg"
+                className="w-full h-auto "
               />
             </div>
           </div>

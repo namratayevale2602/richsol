@@ -1,133 +1,148 @@
 import React, { useEffect, useState } from "react";
+import {
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+  img11,
+  img12,
+  pramotionalSMS,
+  transactionalSMS,
+} from "../../assets/index";
+
+import data from "../../data/productsData.json";
+import imageMapping from "../../data/imageMapping";
 
 // Dummy data for subtypes
+
+const subtypesData = data.subtypesData;
 const dummySubtypesData = {
   subtypes: [
     {
       id: 1,
       product_name: "bulk-sms",
-      title: "SEO Services",
-      subtitle: "Search Engine Optimization",
+      title: "Promotional SMS",
       description:
-        "Comprehensive SEO services to improve your website's visibility and ranking on search engines. We use white-hat techniques to drive organic traffic and increase conversions.",
-      image: "/images/seo-services.jpg",
+        "Promotional SMS are sent with the objective of promoting a product or service, and this category includes any sales and marketing messages, whether solicited by the recipient or not. These messages can only be sent to non-DND (Do Not Disturb) numbers between 9 AM and 9 PM. Additionally, the SMS will appear on the recipient's mobile as a numeric number. The character limit for SMS is 160 characters in English and 70 characters in Marathi. The service also supports database integration and provides an API for easy application integration. The validity of the promotional SMS service is one year",
+      image: pramotionalSMS,
     },
     {
       id: 1,
       product_name: "bulk-sms",
-      title: "SEO Services",
-      subtitle: "Search Engine Optimization",
+      title: "Transactional SMS",
       description:
-        "Comprehensive SEO services to improve your website's visibility and ranking on search engines. We use white-hat techniques to drive organic traffic and increase conversions.",
-      image: "/images/seo-services.jpg",
+        "Transactional SMS are messages sent to customers to provide necessary information for using a product or service. For example, a bank might send an SMS to an account holder regarding their available account balance, or a company might send an SMS to a client about their invoice amount. These SMS are delivered 100% to both DND and non-DND numbers. The service allows multiple sender IDs and supports SMS character limits of 160 characters in English and 70 characters in Marathi. It also provides an API for development and has a one-year validity period. A services agreement is compulsory for using the service.",
+      image: transactionalSMS,
     },
     {
       id: 1,
       product_name: "bulk-sms",
-      title: "SEO Services",
-      subtitle: "Search Engine Optimization",
+      title: "OTP SMS (One-Time Password SMS)",
       description:
-        "Comprehensive SEO services to improve your website's visibility and ranking on search engines. We use white-hat techniques to drive organic traffic and increase conversions.",
-      image: "/images/seo-services.jpg",
-    },
-    {
-      id: 2,
-      product_name: "digital-marketing",
-      title: "Social Media Marketing",
-      subtitle: "Engage Your Audience",
-      description:
-        "Strategic social media campaigns across all major platforms to build brand awareness, engage with your audience, and drive meaningful interactions.",
-      image: "/images/social-media.jpg",
-    },
-    {
-      id: 3,
-      product_name: "digital-marketing",
-      title: "PPC Advertising",
-      subtitle: "Pay-Per-Click Management",
-      description:
-        "Expert management of Google Ads and social media advertising campaigns to generate immediate traffic and leads with measurable ROI.",
-      image: "/images/ppc-advertising.jpg",
-    },
-    {
-      id: 4,
-      product_name: "digital-marketing",
-      title: "Content Marketing",
-      subtitle: "Strategic Content Creation",
-      description:
-        "Create valuable, relevant content that attracts and retains your target audience, establishing your brand as an industry authority.",
-      image: "/images/content-marketing.jpg",
-    },
-    {
-      id: 5,
-      product_name: "digital-marketing",
-      title: "Email Marketing",
-      subtitle: "Direct Customer Engagement",
-      description:
-        "Personalized email campaigns that nurture leads, retain customers, and drive conversions through targeted messaging and automation.",
-      image: "/images/email-marketing.jpg",
-    },
-    {
-      id: 6,
-      product_name: "digital-marketing",
-      title: "Analytics & Reporting",
-      subtitle: "Data-Driven Insights",
-      description:
-        "Comprehensive analytics and reporting to measure campaign performance, track ROI, and make informed marketing decisions.",
-      image: "/images/analytics.jpg",
+        "OTP (One-Time Password) messages are secure, time-sensitive SMS used for authentication and verification. They are commonly used to confirm a user's identity during login or transactions, providing an extra layer of security. OTPs ensure safe access to online services by requiring users to enter a unique code sent to their mobile device. This prevents unauthorized access and protects sensitive information. Our OTP service guarantees timely and secure delivery, helping businesses enhance security and ensure a smooth user experience for their customers.",
+      image: transactionalSMS,
     },
     {
       id: 7,
       product_name: "graphic-design",
       title: "Logo Design",
-      subtitle: "Brand Identity Creation",
       description:
-        "Professional logo design services that capture your brand's essence and create a memorable visual identity for your business.",
-      image: "/images/logo-design.jpg",
+        "Our Logo Design service creates unique, memorable logos that reflect your brand's identity. Tailored to your vision, we design logos that make a lasting impression, ensuring your brand stands out and is easily recognizable across all platforms.",
+      image: img1,
     },
     {
       id: 8,
       product_name: "graphic-design",
-      title: "Branding Package",
-      subtitle: "Complete Brand Identity",
+      title: "Infographic Design",
       description:
-        "Comprehensive branding packages including logo, color palette, typography, and brand guidelines for consistent visual identity.",
-      image: "/images/branding-package.jpg",
+        "Transform complex information into visually engaging infographics that simplify communication. Our Infographic Design service helps present data and concepts in a way that's easy to understand, making your content more engaging and shareable.",
+      image: img10,
     },
     {
       id: 9,
       product_name: "graphic-design",
-      title: "Print Design",
-      subtitle: "Physical Marketing Materials",
+      title: "PowerPoint Design",
       description:
-        "Design services for brochures, flyers, business cards, and other print materials that make a lasting impression.",
-      image: "/images/print-design.jpg",
+        "Elevate your presentations with custom PowerPoint designs that captivate and engage your audience. We create visually striking slides that complement your message, ensuring your presentations leave a professional and lasting impact.",
+      image: img1,
     },
     {
-      id: 10,
-      product_name: "design-develop",
-      title: "Website Development",
-      subtitle: "Custom Web Solutions",
+      id: 9,
+      product_name: "graphic-design",
+      title: "Catalogue Design",
       description:
-        "Custom website development with responsive design, fast loading times, and optimal user experience across all devices.",
-      image: "/images/website-development.jpg",
+        "Create stunning product catalogues that showcase your offerings in a visually appealing and organized manner. Our Catalogue Design service ensures your products are presented in a way that captures attention and drives conversions.",
+      image: img1,
     },
     {
-      id: 11,
-      product_name: "design-develop",
-      title: "E-Commerce Solutions",
-      subtitle: "Online Store Development",
+      id: 9,
+      product_name: "graphic-design",
+      title: "Business Card Design",
       description:
-        "Complete e-commerce solutions with secure payment gateways, inventory management, and seamless shopping experiences.",
-      image: "/images/ecommerce-solutions.jpg",
+        "Make a strong first impression with custom-designed business cards that reflect your professional brand. We design sleek, creative business cards that leave a lasting mark, ensuring your contact details stand out in a competitive market.",
+      image: img11,
     },
     {
-      id: 12,
-      product_name: "design-develop",
-      title: "Mobile App Development",
-      subtitle: "Native & Cross-Platform Apps",
+      id: 9,
+      product_name: "graphic-design",
+      title: "Web Banner Design",
       description:
-        "Development of mobile applications for iOS and Android platforms with intuitive interfaces and robust functionality.",
-      image: "/images/mobile-app-development.jpg",
+        "Capture attention with eye-catching web banners designed to promote your brand or special offers. Our Web Banner Design service creates visually compelling banners that attract clicks and drive traffic to your website.",
+      image: img12,
+    },
+    {
+      id: 9,
+      product_name: "whatsapp-service",
+      title: "Bulk WhatsApp Messaging",
+      description:
+        "Effortlessly reach a wider audience with our Bulk WhatsApp Messaging solution. Send text, images, videos, and PDFs to thousands of users at once. Perfect for promotions, updates, and customer engagement. Experience faster delivery, enhanced reach, and unparalleled efficiency.",
+      image: img1,
+    },
+    {
+      id: 9,
+      product_name: "whatsapp-service",
+      title: "Blue Tick Verified WhatsApp",
+      description:
+        "Boost trust and credibility with a Blue Tick Verified WhatsApp account. Showcase your brand as authentic and reliable with WhatsApp’s verified badge. Ideal for businesses seeking to strengthen customer relationships and enhance brand recognition.",
+      image: img2,
+    },
+    {
+      id: 9,
+      product_name: "whatsapp-service",
+      title: "WhatsApp Business API",
+      description:
+        "Streamline customer communication with the powerful WhatsApp Business API. Automate responses, integrate with CRMs, and send personalized notifications. Perfect for scaling businesses looking to deliver exceptional customer experiences.",
+      image: img2,
+    },
+    {
+      id: 9,
+      product_name: "digital-auto",
+      title: "Customer Relationship Management (CRM)",
+      description:
+        "Optimize your customer interactions with our advanced CRM solutions. Track leads, manage customer data, and automate follow-ups to boost sales and improve client retention. Perfect for businesses aiming to strengthen customer relationships and drive growth.",
+      image: img4,
+    },
+    {
+      id: 9,
+      product_name: "digital-auto",
+      title: "Content Management System (CMS)",
+      description:
+        "Simplify content creation and management with our intuitive CMS platform. Easily update your website, organize media, and ensure seamless user experiences. Ideal for businesses looking to maintain dynamic, content-rich online platforms effortlessly.",
+      image: img5,
+    },
+    {
+      id: 9,
+      product_name: "digital-auto",
+      title: "Workflow Automation",
+      description:
+        "Transform your processes with Workflow Automation. Streamline repetitive tasks, improve team collaboration, and boost productivity with tailored solutions for your business needs. Perfect for companies seeking to save time and focus on strategic growth.",
+      image: img6,
     },
   ],
 };
@@ -138,7 +153,7 @@ const fetchSubtypes = async (id) => {
     setTimeout(() => {
       try {
         if (id) {
-          const filterData = dummySubtypesData.subtypes.filter(
+          const filterData = subtypesData.subtypes.filter(
             (item) => item.product_name === id
           );
           resolve(filterData);
@@ -274,13 +289,10 @@ const Digital = ({ subpage }) => {
 };
 
 export function DigitalCard({ title, subtitle, image, description }) {
-  // Generate placeholder image based on title
-  const imageSrc = `https://picsum.photos/100/100?random=${title.length}&grayscale`;
-
   return (
     <div className="grid gap-6 rounded-md p-8 md:p-10 bg-sky-100 shadow-md hover:shadow-lg transition-shadow duration-300">
       <img
-        src={imageSrc}
+        src={imageMapping[image]}
         width={100}
         height={100}
         alt={title}
@@ -288,7 +300,6 @@ export function DigitalCard({ title, subtitle, image, description }) {
       />
       <div>
         <h3 className="text-xl font-semibold text-gray-800 mb-1">{title}</h3>
-        {subtitle && <p className="text-sm text-gray-600 mb-2">{subtitle}</p>}
       </div>
       <p className="text-sm text-gray-500 text-justify leading-relaxed">
         {description}

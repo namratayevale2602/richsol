@@ -65,9 +65,6 @@ const Case = ({ title, icon, industry_id, product_id }) => {
     fetchUrl();
   }, [industry_id, product_id]);
 
-  // Generate placeholder icon based on title
-  const iconSrc = `https://picsum.photos/25/25?random=${title.length}`;
-
   return (
     <Link to={url}>
       <div className="group card bg-sky-100 hover:bg-blue-950 hover:text-white w-[350px] shadow-md hover:shadow-sm cursor-pointer transition-all duration-300">
@@ -76,7 +73,7 @@ const Case = ({ title, icon, industry_id, product_id }) => {
             <h2 className="card-title text-xl font-semibold">{title}</h2>
           </div>
           <img
-            src={iconSrc}
+            src={icon}
             width={25}
             height={25}
             alt={"case study"}
